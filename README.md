@@ -1,12 +1,17 @@
 ### Descripción
 Have a beer is a collaborative project inspired by "Buy me a Coffee"
 
-### Instrucciones
+### Instrucciones 
+- Fork este repositorio
 ```
 cp .env.example
+npm install
 npm run build
 npm run dev
 ```
+
+### Endpoints
+[Lista de endpoints]()
 
 ### Requisitos
 
