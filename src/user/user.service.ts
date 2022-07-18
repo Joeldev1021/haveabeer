@@ -25,7 +25,7 @@ class UserService {
 
     async findById(id: string): Promise<IUser> {
         try {
-            return await userRepository.findById(id);
+            return userRepository.findById(id);
         } catch (error) {
             throw error;
         }
@@ -33,7 +33,7 @@ class UserService {
 
     async findByEmail(email: string): Promise<IUser> {
         try {
-            return await userRepository.findByEmail(email);
+            return userRepository.findByEmail(email);
         } catch (error) {
             throw error;
         }
@@ -79,7 +79,7 @@ class UserService {
 
     async updateLogin(id: string) {
         try {
-            return await userRepository.updateLogin(id);
+            return userRepository.updateLogin(id);
         } catch (error) {
             throw error;
         }
@@ -87,7 +87,7 @@ class UserService {
 
     async delete(id: string) {
         try {
-            return await userRepository.delete(id);
+            return userRepository.delete(id);
         } catch (error) {
             throw error;
         }
@@ -112,7 +112,7 @@ class UserService {
 
     async isPasswordValid(password: string, hashedPassword: string) {
         try {
-            return await bcrypt.compare(password, hashedPassword);
+            return bcrypt.compare(password, hashedPassword);
         } catch (error) {
             throw error;
         }
@@ -120,7 +120,7 @@ class UserService {
 
     async hashedPassword(password: string, saltRounds: number = 10) {
         try {
-            return await bcrypt.hash(password, saltRounds);
+            return bcrypt.hash(password, saltRounds);
         } catch (error) {
             throw error;
         }

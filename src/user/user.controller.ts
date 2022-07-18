@@ -12,7 +12,7 @@ class UserController {
 
     async findAll(req: Request, res: Response) {
         try {
-            const users = await userService.findAll();
+            const users = userService.findAll();
 
             return res.status(HttpStatus.OK).send(users);
         } catch (error) {
@@ -22,7 +22,7 @@ class UserController {
 
     async findById(req: Request, res: Response) {
         try {
-            const user = await userService.findById(req.params.id);
+            const user = userService.findById(req.params.id);
 
             return res.status(HttpStatus.OK).send(user);
         } catch (error) {
@@ -32,7 +32,7 @@ class UserController {
 
     async findByEmail(req: Request, res: Response) {
         try {
-            const user = await userService.findByEmail(req.params.email);
+            const user = userService.findByEmail(req.params.email);
 
             return res.status(HttpStatus.OK).send(user);
         } catch (error) {
@@ -42,7 +42,7 @@ class UserController {
 
     async findTopDrunks(req: Request, res: Response) {
         try {
-            const drunks = await userService.findTopDrunks();
+            const drunks = userService.findTopDrunks();
 
             return res.status(HttpStatus.OK).send(drunks);
         } catch (error) {
@@ -54,7 +54,7 @@ class UserController {
         try {
             const createUserDto: CreateUserDto = req.body;
 
-            const user = await userService.create(createUserDto);
+            const user = userService.create(createUserDto);
 
             return res.status(HttpStatus.OK).send(user);
         } catch (error) {
@@ -66,7 +66,7 @@ class UserController {
         try {
             const updateUserDto: UpdateUserDto = req.body;
 
-            const user = await userService.update(req.params.id, updateUserDto);
+            const user = userService.update(req.params.id, updateUserDto);
 
             return res.status(HttpStatus.OK).send(user);
         } catch (error) {
@@ -76,7 +76,7 @@ class UserController {
 
     async delete(req: Request, res: Response) {
         try {
-            const user = await userService.delete(req.params.id);
+            userService.delete(req.params.id);
 
             return res.status(HttpStatus.OK).send('User deleted');
         } catch (error) {

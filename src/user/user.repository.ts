@@ -9,7 +9,7 @@ class UserRepository {
 
     async findAll(): Promise<IUser[]> {
         try {
-            return await User.find();
+            return User.find();
         } catch (error) {
             throw error;
         }
@@ -17,7 +17,7 @@ class UserRepository {
 
     async findById(id: string): Promise<IUser> {
         try {
-            return await User.findById(id);
+            return User.findById(id);
         } catch (error) {
             throw error;
         }
@@ -25,7 +25,7 @@ class UserRepository {
 
     async findByEmail(email: string): Promise<IUser> {
         try {
-            return await User.findOne({ email });
+            return User.findOne({ email });
         } catch (error) {
             throw error;
         }
@@ -63,7 +63,7 @@ class UserRepository {
 
     async delete(id: string) {
         try {
-            return await User.findByIdAndDelete(id);
+            return User.findByIdAndDelete(id);
         } catch (error) {
             throw error;
         }
