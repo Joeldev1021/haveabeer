@@ -72,5 +72,3 @@ En este apartado, estarán todos los [issues abiertos](https://github.com/brahia
 - patch
 - delete
 
-### Colaboradores:
-[Yhonatan Peguero](https://github.com/YhonaPeguero)
