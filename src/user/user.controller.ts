@@ -53,7 +53,7 @@ class UserController {
     async create(req: Request, res: Response) {
         try {
             const createUserDto: CreateUserDto = req.body;
-            const user = await userService.create(createUserDto);
+            const user = userService.create(createUserDto);
             return res.status(HttpStatus.OK).send(user);
         } catch (error) {
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
