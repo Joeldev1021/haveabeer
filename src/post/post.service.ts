@@ -38,6 +38,7 @@ class PostService {
 
     async create(createPostDto: CreatePostDto): Promise<IPost> {
         try {
+            console.log('service', createPostDto)
            const postFound = await postRepository.findByTitle(createPostDto.title);
 
            if(postFound) throw new Error("Post already exist");

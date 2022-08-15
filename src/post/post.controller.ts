@@ -2,10 +2,10 @@
 import { Request, Response } from 'express';
 // Internal modules
 import { CreatePostDto } from './dtos/create.post.dto';
-/* import { UpdateUserDto } from './dtos/update.user.dto'; */
 import HttpStatus from '../config/http.status';
 import postService from './post.service';
 import { UpdatePostDto } from './dtos/update.post.dto';
+import {IGetUserAuthInfoRequest} from "../auth/interfaces/auth.interface"
 
 class PostController {
     constructor() { }
@@ -34,11 +34,11 @@ class PostController {
 
 
 
-    async create(req: Request, res: Response) {
+    async create(req: IGetUserAuthInfoRequest, res: Response) {
+
         try {
 /* {...req.body, image:req.file.filename} */ 
-            const createPostDto: CreatePostDto = req.body
-
+            const createPostDto: CreatePostDto = {...req.body, _user:req.user }
             const post = await postService.create(createPostDto);
 
              res.status(HttpStatus.OK).send(post);

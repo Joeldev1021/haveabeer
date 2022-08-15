@@ -13,10 +13,9 @@ class UserController {
     async findAll(req: Request, res: Response) {
         try {
             const users = userService.findAll();
-
             return res.status(HttpStatus.OK).send(users);
         } catch (error) {
-            res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+            res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error.message);
         }
     }
 
@@ -26,7 +25,7 @@ class UserController {
 
             return res.status(HttpStatus.OK).send(user);
         } catch (error) {
-            res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+            res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error.message);
         }
     }
 

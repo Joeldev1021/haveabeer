@@ -18,9 +18,11 @@ export class PostDto {
     _user: string;
 
     @IsString()
+    @IsOptional()
     createdAt: string;
 
     @IsString()
+    @IsOptional()
     deletedAt: string;
 }
 

@@ -13,11 +13,7 @@ export class CreatePostDto {
   description: string;
 
   @IsString()
-  @IsOptional()
-  _user: string;
-
-  @IsString()
-  createdAt: string;
+  _user: string; 
 
 }
 
