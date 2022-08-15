@@ -6,12 +6,15 @@ import { DataStoredInToken } from './interfaces/stored.token.interface';
 import enviromentConfig from '../config/enviroment.config'
 
 class JwtService {
-    constructor() { }
+    constructor() {}
 
     async generateToken(user: any) {
         const storedToken: DataStoredInToken = { _id: user._id };
 
-        return jwt.sign(storedToken, enviromentConfig.jwt.secret, { expiresIn: enviromentConfig.jwt.expireTime });
+        return  {
+            token: jwt.sign(storedToken, enviromentConfig.jwt.secret, { expiresIn: enviromentConfig.jwt.expireTime }),
+            expiresIn: enviromentConfig.jwt.expireTime
+        } 
     }
 }
 
