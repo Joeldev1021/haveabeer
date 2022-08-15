@@ -13,12 +13,11 @@ class AuthService {
         if (!user) throw new Error('User not found');
 
         const isPasswordValid = await userService.isPasswordValid(loginDto.password, user.password);
-        const token: any = jwtService.generateToken(user);
+        const token:any = await jwtService.generateToken(user);
 
         if (!isPasswordValid) throw new Error('Password is invalid');
 
         const cookie = await this.createCookie(token);
-
         return { user, cookie };
     }
 
