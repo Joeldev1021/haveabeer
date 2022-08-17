@@ -1,5 +1,5 @@
 // External modules
-import { IsOptional, IsString } from "class-validator";
+import { IsString } from "class-validator";
 
 export class CreatePostDto {
   // Post 
@@ -13,7 +13,7 @@ export class CreatePostDto {
   description: string;
 
   @IsString()
-  _user: string; 
+  _user: string;
 
 }
 

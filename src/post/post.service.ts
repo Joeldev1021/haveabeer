@@ -29,46 +29,53 @@ class PostService {
 
     async findById(id: string): Promise<IPost> {
         try {
-        return await postRepository.findById(id);
+            return await postRepository.findById(id);
         } catch (error) {
-        throw new error
+            throw new error
+        }
+    }
+
+    async findByUser(user: any): Promise<IPost[]> {
+        try {
+            return postRepository.findByUser(user)
+        } catch (error) {
+            throw new error
         }
     }
 
 
     async create(createPostDto: CreatePostDto): Promise<IPost> {
         try {
-            console.log('service', createPostDto)
-           const postFound = await postRepository.findByTitle(createPostDto.title);
+            const postFound = await postRepository.findByTitle(createPostDto.title);
 
-           if(postFound) throw new Error("Post already exist");
-            
-            const postTrim:CreatePostDto =  toTrimCase(createPostDto);
+            if (postFound) throw new Error("Post already exist");
+
+            const postTrim: CreatePostDto = toTrimCase(createPostDto);
             const post = await postRepository.create(postTrim)
-            
+
             return toUpperCase(post)
 
         } catch (error) {
-           throw error
-        } 
-        
-    }
-
-        async update(id: string, updatePostDto: UpdatePostDto): Promise<IPost> {
-            try {
-                const post = await postRepository.update(id, updatePostDto );
-     
-                return toUpperCase(post);
-            } catch (error) {
-                throw error;
-            }
+            throw error
         }
 
-/**
- * Async delete(id: string): Promise IPost  {
- * @param {string} id - string - The id of the post to delete
- * @returns The deleted post.
- */
+    }
+
+    async update(id: string, updatePostDto: UpdatePostDto): Promise<IPost> {
+        try {
+            const post = await postRepository.update(id, updatePostDto);
+
+            return toUpperCase(post);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    /**
+     * Async delete(id: string): Promise IPost  {
+     * @param {string} id - string - The id of the post to delete
+     * @returns The deleted post.
+     */
     async delete(id: string): Promise<IPost> {
         try {
             return postRepository.delete(id);
