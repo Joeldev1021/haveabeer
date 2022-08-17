@@ -9,7 +9,7 @@ const routes = Router();
 routes.get('/', postController.findAll);
 routes.get('/post', postController.findByUser)
 routes.get('/:id', postController.findById);
-routes.post('/', authMiddleware, postController.create);
+routes.post('/', authMiddleware, upload, postController.create);
 routes.delete('/:id', postController.delete);
 routes.put('/:id', postController.update);
 
