@@ -6,7 +6,7 @@ import { DataStoredInToken } from './interfaces/stored.token.interface';
 import enviromentConfig from '../config/enviroment.config'
 
 class JwtService {
-    constructor() { }
+    constructor() {}
 
     async generateToken(user: any) {
         const storedToken: DataStoredInToken = { _id: user._id };
